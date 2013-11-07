@@ -16,43 +16,96 @@
 
         <script src="js/captcha.js"></script>
 
+
         <style>
-            body { background-color: #ECF0F1; padding-top: 5%; text-align: center; }
+            body { background-color: #ECF0F1; padding-top: 20%; text-align: center; }
         </style>
 
         <script>
              $(function() {
 
-                $(".sortable").sortable();
+                $('.item').hover( function(){
+                    var i = ($(this).index()+1);
+                    var n = $(this).html();
+                     if( i === n ) {
+                        $(this).animate({backgroundColor: '#B6CD48', borderBottomColor: '#8b9947'}, {queue: false});
+                     }
+                }, function(){
+                     if( i === n ) {
+                        $(this).animate({backgroundColor: '#B6CD48', borderBottomColor: '#8b9947'}, {queue: false});
+                     }
+                });
+
+                 $('.sortable').sortable({
+                    stop: function( event, ui){
+                        var i = ui.item.index()+1;
+                        var n = ui.item.html();
+                        var c = 0;
+                        if( i == n ) {
+                            ui.item.animate({backgroundColor: '#B6CD48', borderBottomColor: '#8b9947'}, function(){
+                               $('.sortable li').each( function(index){
+                                if( ($(this).index()+1) == $(this).html() ){
+
+                                        $(this).animate({backgroundColor: '#B6CD48', borderBottomColor: '#8b9947'}, function(){
+                                            c = c+1;
+                                            $('.good-count').html(c);
+                                            if(c == 6){
+                                                $('.captcha-box').slideToggle();
+                                                $('.captcha').html('Так прекрасно, что ты не робот!');
+                                                $('.robo-button').html("Погнали!");
+                                                $('.robo-button').animate({backgroundColor: '#B6CD48', borderBottomColor: '#8b9947', color: '#1F1613'});
+                                                $('.sortable').sortable('disable');
+                                            }
+                                        });
+                                    } else {
+                                        $(this).animate({backgroundColor: '#3498DB', borderBottomColor: '#2d678d'});
+
+                                    }
+                                });
+                            });
+                        } else {
+                            i.item.animate({backgroundColor: '#3498DB', borderBottomColor: '#2d678d'});
+                        }
+
+
+                        if($('.good-count').html() == '6') {
+
+                        }
+                    }
+                 });
+
                 $(".sortable").disableSelection();
                 $('ul').shuffle();
 
                 $(".robo-button").click(function(){
-                    ($('ul').validate()) ? alert("Welcome, human!") : alert("Nice try, robot!");
+                     if ( !( $('ul').validate() ) ) {
+
+                     }
                 });
 
             });
         </script>
 
-
     </head>
     <body>
 
+
             <div class="captcha-box">
+                <i class="good-count"></i>
                 <div class="captcha">
                      Передвинте цифры по порядку, от 1 до 6
                 </div>
                 <ul class="sortable">
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
+                    <li class="item">1</li>
+                    <li class="item">2</li>
+                    <li class="item">3</li>
+                    <li class="item">4</li>
+                    <li class="item">5</li>
+                    <li class="item">6</li>
                 </ul>
             </div>
 
-           <a class="robo-button">Am i robot?</a>
+           <a class="robo-button">Так ты робот?</a>
 
     </body>
 </html>
