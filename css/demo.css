@@ -1,0 +1,13 @@
+
+
+
+        body { background-color: #ECF0F1; padding-top: 5%; text-align: center; }
+        .demo { width: 350px; margin: 0 auto; }
+
+        h1 { font-family: 'Open Sans Condensed'; font-size: 50px; font-weight: 300 !important; }
+        .demo form input { width: 350px; height: 38px; border-radius: 5px; border: 2px solid #dad0cb;
+         box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+            margin-top: 10px; }
+        .demo form textarea { width: 350px; height: 150px; border-radius: 5px; border: 2px solid #dad0cb; box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+            margin-top: 10px; }
+        form { display: none; }

@@ -7,106 +7,23 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
         <link href="css/captcha.css" rel="stylesheet" type="text/css" />
-
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-        <script src="http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-
-        <script src="js/captcha.js"></script>
+        <link href="css/demo.css" rel="stylesheet" type="text/css" />
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-        <style>
-            body { background-color: #ECF0F1; padding-top: 5%; text-align: center; }
-            .demo { width: 350px; margin: 0 auto; }
-            .demo h1 { font-family: 'Open Sans Condensed'; font-size: 50px; font-weight: 300 !important; }
-            .demo input { width: 350px; height: 38px; border-radius: 5px; border: 2px solid #dad0cb;
-             box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
-                margin-top: 10px; }
-            .demo textarea { width: 350px; height: 150px; border-radius: 5px; border: 2px solid #dad0cb; box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
-                margin-top: 10px; }
-
-        </style>
-
-        <script>
-             $(function() {
-
-                $('.item').hover( function(){
-                    var i = ($(this).index()+1);
-                    var n = $(this).html();
-                     if( i === n ) {
-                        $(this).animate({backgroundColor: '#B6CD48', borderBottomColor: '#8b9947'}, {queue: false});
-                     }
-                }, function(){
-                     if( i === n ) {
-                        $(this).animate({backgroundColor: '#B6CD48', borderBottomColor: '#8b9947'}, {queue: false});
-                     }
-                });
-
-                 $('.sortable').sortable({
-                    stop: function( event, ui){
-                        var i = ui.item.index()+1;
-                        var n = ui.item.html();
-                        var c = 0;
-                        if( i == n ) {
-                            ui.item.animate({backgroundColor: '#B6CD48', borderBottomColor: '#8b9947'}, function(){
-                               $('.sortable li').each( function(index){
-                                if( ($(this).index()+1) == $(this).html() ){
-
-                                        $(this).animate({backgroundColor: '#B6CD48', borderBottomColor: '#8b9947'}, function(){
-                                            c = c+1;
-                                            $('.good-count').html(c);
-                                            if(c == 6){
-
-                                                $('.captcha').html('Так прекрасно, что ты не робот!');
-                                                $('.robo-button').html("Погнали!");
-                                                $('.robo-button').animate({backgroundColor: '#B6CD48', borderBottomColor: '#8b9947', color: '#1F1613'}, function(){
-                                                      $('.captcha-box').slideToggle();
-                                                });
-                                                $('.sortable').sortable('disable');
-                                            }
-                                        });
-                                    } else {
-                                        $(this).animate({backgroundColor: '#3498DB', borderBottomColor: '#2d678d'});
-
-                                    }
-                                });
-                            });
-                        } else {
-                            i.item.animate({backgroundColor: '#3498DB', borderBottomColor: '#2d678d'});
-                        }
-
-
-                        if($('.good-count').html() == '6') {
-
-                        }
-                    }
-                 });
-
-                $(".sortable").disableSelection();
-                $('ul').shuffle();
-
-                $(".robo-button").click(function(){
-                     if ( !( $('ul').validate() ) ) {
-
-                     }
-                });
-
-            });
-        </script>
 
     </head>
     <body>
 
-            <form class="demo">
-                <h1>Лайтовейшая капча</h1>
-                 <input type="text">
-                <textarea></textarea>
-            </form>
+            <h1>Easy Touch Captcha.</h1>
+
+            <div class="demo">
+                <form><input type="text"><textarea></textarea></form>
+            </div>
 
             <div class="captcha-box">
                 <i class="good-count"></i>
                 <div class="captcha">
-                     Передвинте цифры по порядку, от 1 до 6
+                     Передвинь цифры по порядку, от 1 до 6
                 </div>
                 <ul class="sortable">
                     <li class="item">1</li>
@@ -118,7 +35,36 @@
                 </ul>
             </div>
 
-           <div class="robo-button">Докажи, что ты не робот!</div>
+            <div class="robo-button">Ты случайно не робот?</div>
+
+
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+        <script src="js/captcha.js"></script>
+
+        <script>
+             $(function() {
+
+                 $('.sortable').sortable({ stop: function( event, ui){
+                       captchaOnDrop(ui);
+                    }
+                 });
+
+                $(".sortable").disableSelection();
+                $('ul').shuffle();
+
+                $(".robo-button").click(function(){
+                     if ( !( $('ul').validate() ) ) {
+                        $(this).html('Да ты точно робот!');
+                     } else {
+                        $(this).html('Ты вообще классный');
+                     }
+                });
+
+            });
+        </script>
 
     </body>
 </html>
