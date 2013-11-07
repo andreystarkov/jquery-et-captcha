@@ -2,30 +2,28 @@
    /* Touch Captcha CSS.
       im@andreystarkov.ru | andreystarkov.ru */
 
-    .robo-button { border-radius: 8px; background: #E74C3C; border-bottom: 5px solid #ae3225; font-size: 18px;
-    position: relative; margin: 25px auto; cursor: pointer; color: #fff; padding: 10px 0px 10px 0px;
-    font-family: 'PT Sans Caption', Arial; font-weight: normal; transition: all 0.3s ease-in; line-height: 30px; width: 355px;
-    -webkit-transition:all 0.5s ease-in-out; -webkit-perspective: 800px; -webkit-perspective-origin: 50% 100px;
 
+    .robo-button { border-radius: 8px; background: #E74C3C; border-bottom: 5px solid #ae3225; font-size: 18px;
+    position: relative; margin: 25px auto; cursor: pointer; color: #FCF9F2; padding: 10px 0px 10px 0px;
+    font-family: 'PT Sans Caption', Arial; font-weight: normal; transition: all 0.3s ease-in; line-height: 30px; width: 353px;
+    -webkit-transition:all 0.5s ease-in-out; -webkit-perspective: 800px; -webkit-perspective-origin: 50% 100px;
+    text-shadow: 1px 0 2px rgba(0,0,0,0.25) !important;  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
 
     .robo-button:hover { -webkit-transform:rotateX(20deg); background: #FF6042; border-bottom: 5px solid #c65a45; }
 
-    .good-count { display: none; opacity: 0;}
+    .good-count { display: none; opacity: 0; }
 
     .captcha-box { border: 1px solid #fff;  border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-     height: 120px; overflow: auto; width: 350px; overflow: hidden; margin: 20px auto; background-color: #fff;
-     border-bottom: 5px solid #bfcccf; }
+     height: 120px; overflow: auto; width: 350px; overflow: hidden; margin: 20px auto; background-color: #FCF9F2;
+     border-bottom: 5px solid #d4cdbe; }
 
     .captcha-box .sortable { list-style-type: none; margin: 5px 0px 0px 16px; padding: 0; }
 
     .captcha-box .sortable li { margin: 10px 5px 3px 0; padding: 1px; float: left; width: 47px; height: 47px; font-size: 32px; text-align: center;
         line-height: 47px; cursor: pointer; border-radius: 5px; text-shadow: 0 -1px 1px rgba(0,0,0,0.25); /* rgba(42,101,156,1); rgba(199,66,58,1); */
-         font-weight: normal; border-bottom: 4px solid #2d678d; background: #3498DB; color: #fff;
-
-    }
+         font-weight: normal; border-bottom: 4px solid #2d678d; background: #3498DB; color: #FCF9F2; }
 
     .captcha-box .sortable li:hover { background: #2980B9; }
 
-    .captcha { border-radius: 10px; font-size: 16px; color: #3b3733; text-align: center; padding: 10px; border-bottom: 1px solid #CCC; background-color: #fff;
-    font-family: 'PT Sans Caption', Arial; }
+    .captcha { background: #FCF9F2; border-radius: 10px; font-size: 16px; color: #6a615b; text-align: center; padding: 10px; border-bottom: 1px solid #CCC;  }

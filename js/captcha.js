@@ -4,18 +4,36 @@
       */
 
         // options
+        /*
+        var colorYes = '#50483D';
+        var colorYesBorder = '#161513';
 
-        var colorYes = '#B6CD48';
-        var colorYesBorder = '#8b9947';
+        var colorNo = '#62AAA6';
+        var colorNoBorder = '#658280';
 
-        var colorNo = '#3498DB';
-        var colorNoBorder = '#2d678d';
+        var btnColor = '#ED593B';
+        var btnColorBorder = '#b44d38';
+        */
+
+        var colorYes = '#50483D';
+        var colorYesBorder = '#161513';
+
+        var colorNo = '#62AAA6';
+        var colorNoBorder = '#658280';
+
+        var colorNo = '#62AAA6';
+        var colorNoBorder = '#658280';
+
+        var btnColor = '#62AAA6';
+        var btnColorBorder = '#658280';
+        var textLight = '#FCF9F2';
+        var textDark = '#50483D';
 
         function captchaSuccess(){
 
-            $('.robo-button').html("Так прекрасно, что ты не робот!");
+            $('.robo-button').html("Humans are awesome!");
 
-            $('.robo-button').animate({backgroundColor: colorYes, borderBottomColor: colorYesBorder, color: '#1F1613'}, function(){
+            $('.robo-button').animate({backgroundColor: btnColor, borderBottomColor: btnColorBorder, color: textLight}, function(){
                 $('.captcha-box').slideToggle();
                 $('.demo form').slideToggle();
             });
@@ -53,6 +71,13 @@
                 }
         }
 
+
+         $(function() {
+
+             $('.robo-button').css({'background': '#FFC853', 'border-bottom': '5px solid #c9a354', color: colorYes});
+             $('.captcha-box .sortable li').css({'background': colorNo, 'border-bottom': '5px solid '+colorNoBorder});
+
+         });
 
         (function($){
 

@@ -9,21 +9,19 @@
         <link href="css/captcha.css" rel="stylesheet" type="text/css" />
         <link href="css/demo.css" rel="stylesheet" type="text/css" />
 
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-
     </head>
     <body>
 
-            <h1>Easy Touch Captcha.</h1>
+            <h1>Am I Robot?</h1>
 
             <div class="demo">
-                <form><input type="text"><textarea></textarea></form>
+                <form><input value="Who is there?" type="text"><textarea>What do you want from me?</textarea></form>
             </div>
 
             <div class="captcha-box">
                 <i class="good-count"></i>
                 <div class="captcha">
-                     Передвинь цифры по порядку, от 1 до 6
+                     Move digits from less to most. It's funny.
                 </div>
                 <ul class="sortable">
                     <li class="item">1</li>
@@ -35,7 +33,7 @@
                 </ul>
             </div>
 
-            <div class="robo-button">Ты случайно не робот?</div>
+            <div class="robo-button">I am not a robot!</div>
 
 
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -57,9 +55,9 @@
 
                 $(".robo-button").click(function(){
                      if ( !( $('ul').validate() ) ) {
-                        $(this).html('Да ты точно робот!');
+                        $(this).html('1000% robot!');
                      } else {
-                        $(this).html('Ты вообще классный');
+                        $(this).html('Awesome, human!');
                      }
                 });
 
