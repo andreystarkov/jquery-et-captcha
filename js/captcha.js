@@ -15,7 +15,7 @@
 
             $('.robo-button').html("Так прекрасно, что ты не робот!");
 
-            $('.robo-button').animate({backgroundColor: colorYes, borderBottomColor: colorYesBorder, color: '#1F1613'}, function(){
+            $('.robo-button').animate({backgroundColor: colorYes, borderBottomColor: colorYesBorder}, function(){
                 $('.captcha-box').slideToggle();
                 $('.demo form').slideToggle();
             });
