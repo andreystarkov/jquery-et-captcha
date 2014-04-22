@@ -1,3 +1,2 @@
-Easy Touch Captcha jQuery Plugin
-by Andrey Starkov
+jQuery Easy Touch Captcha
 im@andreystarkov.ru
